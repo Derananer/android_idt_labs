@@ -19,8 +19,6 @@ import android.widget.SimpleCursorAdapter;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
-import static com.su.lab.DetailsActivity.CONTACT_ID_EXTRA;
-
 public class MainActivity extends Activity implements LoaderManager.LoaderCallbacks<Cursor>, AdapterView.OnItemClickListener {
 
     private static final int READ_CONTACTS_PERMISSION_CODE = 123;
@@ -118,8 +116,13 @@ public class MainActivity extends Activity implements LoaderManager.LoaderCallba
     }
 
     private void openDetailsActivity(long contactId) {
-        Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra(CONTACT_ID_EXTRA, contactId);
+        Intent intent = new Intent (this, DetailsActivity.class);
+        intent.putExtra(DetailsActivity.CONTACT_ID_EXTRA, contactId);
         startActivity(intent);
+        /*
+         * TODO #3 Реализовать открытие DetailsActivity через Intent
+         *  https://developer.android.com/training/basics/firstapp/starting-activity
+         *  и передать contactId через extra
+         */
     }
 }
